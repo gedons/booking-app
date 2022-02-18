@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	conferenceName := "Go Conferene"
+	conferenceName := "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
 	//create an array slice
@@ -40,8 +40,15 @@ func main() {
 		fmt.Println("How Many Tickets Do You Need : ")
 		fmt.Scan(&userTickets)
 
+		//validate user input
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidUserTickets := userTickets > 0 && userTickets <= remainingTickets
+
+
+
 		//check if the user books more than the available ticket
-		if userTickets <= remainingTickets { 
+		if isValidName && isValidEmail && isValidUserTickets { 
 			//get remainingg tickets
 			remainingTickets = remainingTickets - userTickets
 			//store the values in a slice
@@ -64,9 +71,18 @@ func main() {
 			}
 
 		} else {
-			fmt.Printf("We only have %v tickets remaining, so you cant book %v tickets \n", remainingTickets, userTickets)
-		}
+			if !isValidName {
+				fmt.Printf("The First or Last name is too short\n")
+			}
+			if !isValidEmail {
+				fmt.Printf("The email you entered does not have an @ sign\n")
+			}
+			
+			if !isValidUserTickets {
+				fmt.Printf("Number of ticket you entered is invalid\n")
+			}
 		
 	}
 
+  }
 }
