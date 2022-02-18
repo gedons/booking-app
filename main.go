@@ -7,6 +7,8 @@ import (
 
 func main() {
 
+	greetUsers()
+
 	conferenceName := "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
@@ -82,7 +84,11 @@ func main() {
 				fmt.Printf("Number of ticket you entered is invalid\n")
 			}
 		
-	}
+		}
 
-  }
+   }
+}
+
+func greetUsers() {
+	fmt.Println("Welcome to our conference")
 }
