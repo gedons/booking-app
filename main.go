@@ -52,8 +52,8 @@ func main(){
 
 		firstNames := []string{}
 		for index, booking := range bookings{
-			var names = strings.Fields(booking)
-			firstNames = append(firstNames, name[0])
+			var names = strings.Fields(booking);
+			firstNames = append(firstNames, name[0]);
 		}
 		fmt.Printf("This are all the bookings in our application : %v \n", bookings)
 
